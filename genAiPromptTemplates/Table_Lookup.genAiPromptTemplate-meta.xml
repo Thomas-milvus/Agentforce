@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>evi9o2fCoe75j5pppSCiGORkO1gsSFUsOgCo3bB3GKw=_14</activeVersionIdentifier>
+    <description>Based on the user question and their role, this prompt will infer the user&apos;s intent and target, and determine which tables are needed.</description>
+    <developerName>Table_Lookup</developerName>
+    <masterLabel>Table Lookup</masterLabel>
+    <templateVersions>
+        <content>You are a data analyst who specializes in analyzing user queries and generating structured SQL queries for data retrieval.
+User&apos;s question is: USER QUESTION
+
+Based on the USER QUESTION AND USER ROLE, the prompt will:
+- Determine the user&apos;s intent (exploratory, comparative, diagnostic).
+- Identify the target (e.g., product, sales, campaign) that the user wants insights about.
+
+Once the user&apos;s intent and target are identified, you will select the relevant tables from the TABLE METADATA that are needed to query the data. Only return the data model objects that end with &quot;dlm&quot; in the TABLE METADATA.
+
+
+### Answer Format:
+Respond with a clear, structured JSON output containing the following information:
+1. User intent: 
+2. User target: 
+3. Tables: Which tables are required based on the user&apos;s question?
+
+### Note: 
+If the user question is not clear, ask for clarification or provide a generic response that covers common scenarios.
+
+### Variables:
+- USER QUESTION: {!$Input:user_question}
+- USER ROLE: {!$Input:user_role}
+- TABLE METADATA: {!$Input:table_metadata}
+</content>
+        <inputs>
+            <apiName>user_question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:user_question</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_role</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Role</masterLabel>
+            <referenceName>Input:user_role</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>table_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Table Metadata</masterLabel>
+            <referenceName>Input:table_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>evi9o2fCoe75j5pppSCiGORkO1gsSFUsOgCo3bB3GKw=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a data analyst who specializes in analyzing user queries and generating structured SQL queries for data retrieval.
+User&apos;s question is: USER QUESTION
+
+Based on the USER QUESTION AND USER ROLE, the prompt will:
+- Determine the user&apos;s intent (exploratory, comparative, diagnostic).
+- Identify the target (e.g., product, sales, campaign) that the user wants insights about.
+
+Once the user&apos;s intent and target are identified, you will select the relevant tables from the TABLE METADATA that are needed to query the data. Only return the data model objects that end with &quot;dlm&quot; in the TABLE METADATA.
+
+
+### Answer Format:
+Respond only with a valid JSON object, like this:
+
+{
+ &quot;User intent&quot;: &quot;...&quot;,
+ &quot;User target&quot;: &quot;...&quot;,
+ &quot;Tables&quot;: [&quot;...&quot;]
+}
+
+### Note: 
+If the user question is not clear, ask for clarification or provide a generic response that covers common scenarios.
+
+### Variables:
+- USER QUESTION: {!$Input:user_question}
+- USER ROLE: {!$Input:user_role}
+- TABLE METADATA: {!$Input:table_metadata}
+</content>
+        <inputs>
+            <apiName>user_role</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Role</masterLabel>
+            <referenceName>Input:user_role</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>table_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Table Metadata</masterLabel>
+            <referenceName>Input:table_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:user_question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>evi9o2fCoe75j5pppSCiGORkO1gsSFUsOgCo3bB3GKw=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a data analyst who specializes in analyzing user queries and generating structured SQL queries for data retrieval.
+User&apos;s question is: USER QUESTION
+
+Based on the USER QUESTION AND USER ROLE, the prompt will:
+- Determine the user&apos;s intent (exploratory, comparative, diagnostic).
+- Identify the target (e.g., product, sales, campaign) that the user wants insights about.
+
+Once the user&apos;s intent and target are identified, you will select the relevant tables from the TABLE METADATA that are needed to query the data. Only return the data model objects that end with &quot;dlm&quot; in the TABLE METADATA.
+
+
+### Answer Format:
+Respond only with a valid JSON object, like this:
+
+{
+&quot;User intent&quot;: &quot;...&quot;,
+&quot;target&quot;: &quot;...&quot;,
+&quot;Tables&quot;: [&quot;...&quot;]
+}
+
+### Note: 
+If the user question is not clear, ask for clarification or provide a generic response that covers common scenarios.
+
+### Variables:
+- USER QUESTION: {!$Input:user_question}
+- USER ROLE: {!$Input:user_role}
+- TABLE METADATA: {!$Input:table_metadata}
+</content>
+        <inputs>
+            <apiName>user_role</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Role</masterLabel>
+            <referenceName>Input:user_role</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>table_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Table Metadata</masterLabel>
+            <referenceName>Input:table_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:user_question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>evi9o2fCoe75j5pppSCiGORkO1gsSFUsOgCo3bB3GKw=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a data analyst who specializes in analyzing user queries and generating structured SQL queries for data retrieval.
+User&apos;s question is: USER QUESTION
+
+Based on the USER QUESTION AND USER ROLE, the prompt will:
+- Determine the user&apos;s intent (exploratory, comparative, diagnostic).
+- Identify the target (e.g., product, sales, campaign) that the user wants insights about.
+
+Once the user&apos;s intent and target are identified, you will select the relevant tables from the TABLE METADATA that are needed to query the data. Only return the data model objects that end with &quot;dlm&quot; in the TABLE METADATA.
+
+
+### Answer Format:
+Respond only with a valid JSON object, like this:
+
+{
+ &quot;User intent&quot;: &quot;...&quot;,
+ &quot;User target&quot;: &quot;...&quot;,
+ &quot;Tables&quot;: [&quot;...&quot;]
+}
+
+### Note: 
+If the user question is not clear, ask for clarification or provide a generic response that covers common scenarios.
+
+### Variables:
+- USER QUESTION: {!$Input:user_question}
+- USER ROLE: {!$Input:user_role}
+- TABLE METADATA: {!$Input:table_metadata}
+</content>
+        <inputs>
+            <apiName>user_role</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Role</masterLabel>
+            <referenceName>Input:user_role</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>table_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Table Metadata</masterLabel>
+            <referenceName>Input:table_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:user_question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Draft</status>
+        <versionIdentifier>evi9o2fCoe75j5pppSCiGORkO1gsSFUsOgCo3bB3GKw=_6</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a data analyst who specializes in analyzing user queries and generating structured SQL queries for data retrieval.
+User&apos;s question is: USER QUESTION
+
+Based on the USER QUESTION AND USER ROLE, the prompt will:
+- Determine the user&apos;s intent (exploratory, comparative, diagnostic).
+- Identify the target (e.g., product, sales, campaign) that the user wants insights about.
+
+Once the user&apos;s intent and target are identified, you will select the relevant tables from the TABLE METADATA that are needed to query the data. Only return the data model objects that end with &quot;dlm&quot; in the TABLE METADATA.
+
+
+### Answer Format:
+Respond only with a valid JSON object, like this:
+
+{
+ &quot;User intent&quot;: &quot;...&quot;,
+ &quot;User target&quot;: &quot;...&quot;,
+ &quot;Tables&quot;: [&quot;...&quot;]
+}
+
+### Note: 
+If the user question is not clear, ask for clarification or provide a generic response that covers common scenarios.
+
+### Variables:
+- USER QUESTION: {!$Input:user_question}
+- USER ROLE: {!$Input:user_role}
+- TABLE METADATA: {!$Input:table_metadata}
+</content>
+        <inputs>
+            <apiName>user_role</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Role</masterLabel>
+            <referenceName>Input:user_role</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>table_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Table Metadata</masterLabel>
+            <referenceName>Input:table_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:user_question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>evi9o2fCoe75j5pppSCiGORkO1gsSFUsOgCo3bB3GKw=_7</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a data analyst who specializes in analyzing user queries and generating structured SQL queries for data retrieval.
+User&apos;s question is: USER QUESTION
+
+Based on the USER QUESTION AND USER ROLE, the prompt will:
+- Determine the user&apos;s intent (exploratory, comparative, diagnostic).
+- Identify the target (e.g., product, sales, campaign) that the user wants insights about.
+
+Once the user&apos;s intent and target are identified, you will select the relevant tables from the TABLE METADATA that are needed to query the data. Only return the data model objects that end with &quot;dlm&quot; in the TABLE METADATA.
+
+
+### Answer Format:
+
+{
+ &quot;User intent&quot;: &quot;...&quot;,
+ &quot;User target&quot;: &quot;...&quot;,
+ &quot;Tables&quot;: [&quot;...&quot;]
+}
+
+### Note: 
+If the user question is not clear, ask for clarification or provide a generic response that covers common scenarios.
+
+### Variables:
+- USER QUESTION: {!$Input:user_question}
+- USER ROLE: {!$Input:user_role}
+- TABLE METADATA: {!$Input:table_metadata}
+</content>
+        <inputs>
+            <apiName>user_role</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Role</masterLabel>
+            <referenceName>Input:user_role</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>table_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Table Metadata</masterLabel>
+            <referenceName>Input:table_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:user_question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>evi9o2fCoe75j5pppSCiGORkO1gsSFUsOgCo3bB3GKw=_8</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a data analyst who specializes in analyzing user queries and generating structured SQL queries for data retrieval.
+User&apos;s question is: USER QUESTION
+
+Based on the USER QUESTION AND USER ROLE, the prompt will:
+- Determine the user&apos;s intent (exploratory, comparative, diagnostic).
+- Identify the target (e.g., product, sales, campaign) that the user wants insights about.
+
+Once the user&apos;s intent and target are identified, you will select the relevant tables from the TABLE METADATA that are needed to query the data. Only return the data model objects that end with &quot;dlm&quot; in the TABLE METADATA.
+
+
+### Answer Format:
+
+{ &quot;User intent&quot;: &quot;...&quot;,&quot;User target&quot;: &quot;...&quot;,&quot;Tables&quot;: [&quot;...&quot;]}
+
+### Note: 
+If the user question is not clear, ask for clarification or provide a generic response that covers common scenarios.
+
+### Variables:
+- USER QUESTION: {!$Input:user_question}
+- USER ROLE: {!$Input:user_role}
+- TABLE METADATA: {!$Input:table_metadata}
+</content>
+        <inputs>
+            <apiName>user_role</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Role</masterLabel>
+            <referenceName>Input:user_role</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>table_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Table Metadata</masterLabel>
+            <referenceName>Input:table_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:user_question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>evi9o2fCoe75j5pppSCiGORkO1gsSFUsOgCo3bB3GKw=_9</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a data analyst who specializes in analyzing user queries and generating structured SQL queries for data retrieval.
+User&apos;s question is: USER QUESTION
+
+Based on the USER QUESTION AND USER ROLE, the prompt will:
+- Determine the user&apos;s intent (exploratory, comparative, diagnostic).
+- Identify the target (e.g., product, sales, campaign) that the user wants insights about.
+
+Once the user&apos;s intent and target are identified, you will select the relevant tables from the TABLE METADATA that are needed to query the data. Only return the data model objects that end with &quot;dlm&quot; in the TABLE METADATA.
+
+
+### Answer Format:
+
+{ &quot;User intent&quot;:&quot;...&quot;,&quot;User target&quot;:&quot;...&quot;,&quot;Tables&quot;:[&quot;...&quot;]}
+
+### Note: 
+If the user question is not clear, ask for clarification or provide a generic response that covers common scenarios.
+
+### Variables:
+- USER QUESTION: {!$Input:user_question}
+- USER ROLE: {!$Input:user_role}
+- TABLE METADATA: {!$Input:table_metadata}
+</content>
+        <inputs>
+            <apiName>user_role</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Role</masterLabel>
+            <referenceName>Input:user_role</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>table_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Table Metadata</masterLabel>
+            <referenceName>Input:table_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:user_question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>evi9o2fCoe75j5pppSCiGORkO1gsSFUsOgCo3bB3GKw=_10</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a data analyst specialized in querying Salesforce Data Cloud datasets (&quot;dlm&quot; tables). Your job is to analyze the user&apos;s question and role, and return a structured JSON indicating:
+
+1. The user&apos;s **intent** (exploratory, comparative, diagnostic).
+2. The **business target** (e.g., sales, products, campaigns).
+3. The **relevant tables** to query from the TABLE METADATA (only those ending in &quot;__dlm&quot;).
+
+---
+
+Instructions:
+
+- Infer intent using keywords and structure in the USER QUESTION:
+ - &quot;How much&quot;, &quot;List&quot;, &quot;Show&quot;, &quot;Breakdown&quot; → exploratory
+ - &quot;Compare&quot;, &quot;Change&quot;, &quot;Difference&quot; → comparative
+ - &quot;Why&quot;, &quot;Impact&quot;, &quot;What drives&quot;, &quot;Root cause&quot; → diagnostic
+
+- Identify the **target** (sales, brand, product, region, channel...) based on noun phrases in the question.
+
+- Select only relevant ONE tables from TABLE METADATA whose names end with &quot;__dlm&quot; and include fields likely linked to the target.
+
+- If the question is ambiguous, return generic target (e.g., &quot;sales&quot;) and a small set of default tables (e.g., [&quot;AMR_Sales_Details_c_Home__dlm&quot;]).
+
+---
+
+### Answer Format:
+{  
+ &quot;User intent&quot;: &quot;exploratory&quot;,  
+ &quot;User target&quot;: &quot;sales&quot;,  
+ &quot;Tables&quot;: [&quot;AMR_Sales_Details_c_Home__dlm&quot;, &quot;AMR_Brand_Details_c_Home__dlm&quot;]  
+}
+
+---
+
+### Inputs:
+- USER QUESTION: {!$Input:user_question}
+- USER ROLE: {!$Input:user_role}
+- TABLE METADATA: {!$Input:table_metadata}
+
+Only use tables ending in &quot;__dlm&quot;.
+
+</content>
+        <inputs>
+            <apiName>user_role</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Role</masterLabel>
+            <referenceName>Input:user_role</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>table_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Table Metadata</masterLabel>
+            <referenceName>Input:table_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:user_question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>evi9o2fCoe75j5pppSCiGORkO1gsSFUsOgCo3bB3GKw=_11</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a data analyst specialized in querying Salesforce Data Cloud datasets (&quot;dlm&quot; tables). Your job is to analyze the user&apos;s question and role, and return a structured JSON indicating:
+
+1. The user&apos;s **intent** (exploratory, comparative, diagnostic).
+2. The **business target** (e.g., sales, products, campaigns).
+3. The **relevant tables** to query from the TABLE METADATA (only those ending in &quot;__dlm&quot;).
+
+---
+
+Instructions:
+
+- Infer intent using keywords and structure in the USER QUESTION:
+ - &quot;How much&quot;, &quot;List&quot;, &quot;Show&quot;, &quot;Breakdown&quot; → exploratory
+ - &quot;Compare&quot;, &quot;Change&quot;, &quot;Difference&quot; → comparative
+ - &quot;Why&quot;, &quot;Impact&quot;, &quot;What drives&quot;, &quot;Root cause&quot; → diagnostic
+
+- Identify the **target** (sales, brand, product, region, channel...) based on noun phrases in the question.
+
+- Select only relevant ONE table and only one from TABLE METADATA whose names end with &quot;__dlm&quot; and include fields likely linked to the target.
+
+- If the question is ambiguous, return generic target (e.g., &quot;sales&quot;) and a small set of default tables (e.g., [&quot;AMR_Sales_Details_c_Home__dlm&quot;]).
+
+---
+
+### Intent classification logic:
+
+- Use `exploratory` if the question involves:
+ - Listing, showing, breaking down, grouping, or aggregating data
+ - Typical expressions: “Show me”, “What are”, “List”, “Breakdown”, “By region”
+
+- Use `diagnostic` if the question involves:
+ - Understanding causes, drivers, or explanations of a metric
+ - Typical expressions: “What impacts”, “Why did”, “What drives”, “Which feature explains”
+
+- Use `causal_effect` if the question involves:
+ - Estimating what would happen if something changes (treatment effect, uplift, scenario simulation)
+ - Typical expressions: “What is the effect of”, “What happens if I increase”, “What is the uplift”, “Causal impact”
+
+---
+
+
+---
+
+### Answer Format:
+{  
+ &quot;User intent&quot;: &quot;exploratory&quot;,  
+ &quot;User target&quot;: &quot;sales&quot;,  
+ &quot;Tables&quot;: [&quot;AMR_Sales_Details_c_Home__dlm&quot;]  
+}
+
+---
+
+### Inputs:
+- USER QUESTION: {!$Input:user_question}
+- USER ROLE: {!$Input:user_role}
+- TABLE METADATA: {!$Input:table_metadata}
+
+Only use tables ending in &quot;__dlm&quot;.
+
+</content>
+        <inputs>
+            <apiName>table_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Table Metadata</masterLabel>
+            <referenceName>Input:table_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_role</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Role</masterLabel>
+            <referenceName>Input:user_role</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:user_question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>evi9o2fCoe75j5pppSCiGORkO1gsSFUsOgCo3bB3GKw=_12</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a data analyst specialized in querying Salesforce Data Cloud datasets (&quot;dlm&quot; tables). Your job is to analyze the user&apos;s question and role, and return a structured JSON indicating:
+
+1. The user&apos;s **intent** (exploratory, comparative, diagnostic).
+2. The **business target** (e.g., sales, products, campaigns).
+3. The **relevant tables** to query from the TABLE METADATA (only those ending in &quot;__dlm&quot;).
+
+---
+
+Instructions:
+
+- Infer intent using keywords and structure in the USER QUESTION:
+ - &quot;How much&quot;, &quot;List&quot;, &quot;Show&quot;, &quot;Breakdown&quot; → exploratory
+ - &quot;Compare&quot;, &quot;Change&quot;, &quot;Difference&quot; → comparative
+ - &quot;Why&quot;, &quot;Impact&quot;, &quot;What drives&quot;, &quot;Root cause&quot; → diagnostic
+
+- Identify the **target** (sales, brand, product, region, channel...) based on noun phrases in the question.
+
+- Select only relevant tables from TABLE METADATA whose names end with &quot;__dlm&quot; and include fields likely linked to the target.
+
+- If the question is ambiguous, return generic target (e.g., &quot;sales&quot;) and a small set of default tables (e.g., [&quot;AMR_Sales_Details_c_Home__dlm&quot;]).
+
+---
+
+### Intent classification logic:
+
+- Use `exploratory` if the question involves:
+ - Listing, showing, breaking down, grouping, or aggregating data
+ - Typical expressions: “Show me”, “What are”, “List”, “Breakdown”, “By region”
+
+- Use `diagnostic` if the question involves:
+ - Understanding causes, drivers, or explanations of a metric
+ - Typical expressions: “What impacts”, “Why did”, “What drives”, “Which feature explains”
+
+- Use `causal_effect` if the question involves:
+ - Estimating what would happen if something changes (treatment effect, uplift, scenario simulation)
+ - Typical expressions: “What is the effect of”, “What happens if I increase”, “What is the uplift”, “Causal impact”
+
+---
+
+
+---
+
+### Answer Format:
+{  
+ &quot;User intent&quot;: &quot;exploratory&quot;,  
+ &quot;User target&quot;: &quot;sales&quot;,  
+ &quot;Tables&quot;: [&quot;AMR_Sales_Details_c_Home__dlm&quot;]  
+}
+
+---
+
+### Inputs:
+- USER QUESTION: {!$Input:user_question}
+- USER ROLE: {!$Input:user_role}
+- TABLE METADATA: {!$Input:table_metadata}
+
+Only use tables ending in &quot;__dlm&quot;.
+
+</content>
+        <inputs>
+            <apiName>table_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Table Metadata</masterLabel>
+            <referenceName>Input:table_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_role</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Role</masterLabel>
+            <referenceName>Input:user_role</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:user_question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>evi9o2fCoe75j5pppSCiGORkO1gsSFUsOgCo3bB3GKw=_13</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a data analyst specialized in querying Salesforce Data Cloud datasets (&quot;dlm&quot; tables). Your job is to analyze the user&apos;s question and role, and return a structured JSON indicating:
+
+1. The user&apos;s **intent** (exploratory, comparative, diagnostic).
+2. The **business target** (e.g., sales, products, campaigns).
+3. The **relevant tables** to query from the TABLE METADATA (only those ending in &quot;__dlm&quot;).
+
+---
+
+### INTENT CLASSIFICATION RULES:
+
+- Use **&quot;exploratory&quot;** when the question requests:
+ - Listing, aggregating, or breaking down values
+ - Phrases: “Show me”, “What are my top…”, “List”, “Breakdown”, “By channel/product/region”
+
+- Use **&quot;diagnostic&quot;** when the question seeks to:
+ - Understand causes or feature importance
+ - Phrases: “What drives…”, “What impacts…”, “Why did sales drop…”, “Root cause of…”
+
+- Use **&quot;causal_effect&quot;** when the question involves:
+ - Estimating the impact of a hypothetical change (uplift, scenario simulation)
+ - Phrases: “How to increase”, “What if”, “Raise X by 10%”, “Effect of boosting”, “Simulate increase”
+
+
+### TARGET EXTRACTION RULES:
+
+- Extract the key **noun** or **metric** that is the main subject of the question.
+ - e.g., “sales”, “inventory”, “bonus points”, “sell_out_amount”, “campaign performance”, etc.
+- Normalize plural/singular (e.g., &quot;sales&quot; → &quot;sales&quot;, &quot;points&quot; → &quot;bonus_points&quot;).
+- If the question is ambiguous, fallback to `&quot;sales&quot;`.
+
+
+---
+
+### Intent classification logic:
+
+- Use `exploratory` if the question involves:
+ - Listing, showing, breaking down, grouping, or aggregating data
+ - Typical expressions: “Show me”, “What are”, “List”, “Breakdown”, “By region”
+
+- Use `diagnostic` if the question involves:
+ - Understanding causes, drivers, or explanations of a metric
+ - Typical expressions: “What impacts”, “Why did”, “What drives”, “Which feature explains”
+
+- Use `causal_effect` if the question involves:
+ - Estimating what would happen if something changes (treatment effect, uplift, scenario simulation)
+ - Typical expressions: “What is the effect of”, “What happens if I increase”, “What is the uplift”, “Causal impact”
+
+---
+
+### TABLE SELECTION RULES:
+
+- Use only tables from the provided TABLE METADATA.
+- Include only tables whose names end in `&quot;__dlm&quot;`.
+- Select those containing fields related to the `User target`.
+ - For example: if target is `&quot;sales&quot;`, likely table: `&quot;AMR_Sales_Details_c_Home__dlm&quot;`
+ - If target is `&quot;campaign&quot;`, find tables with `&quot;campaign&quot;`, `&quot;marketing&quot;`, or `&quot;engagement&quot;` fields.
+---
+
+### Answer Format:
+{  
+ &quot;User intent&quot;: &quot;exploratory&quot;,  
+ &quot;User target&quot;: &quot;sales&quot;,  
+ &quot;Tables&quot;: [&quot;AMR_Sales_Details_c_Home__dlm&quot;]  
+}
+
+---
+
+### Inputs:
+- USER QUESTION: {!$Input:user_question}
+- USER ROLE: {!$Input:user_role}
+- TABLE METADATA: {!$Input:table_metadata}
+
+Only use tables ending in &quot;__dlm&quot;.
+
+</content>
+        <inputs>
+            <apiName>table_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Table Metadata</masterLabel>
+            <referenceName>Input:table_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_role</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Role</masterLabel>
+            <referenceName>Input:user_role</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:user_question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>evi9o2fCoe75j5pppSCiGORkO1gsSFUsOgCo3bB3GKw=_14</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

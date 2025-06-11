@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>siAs7XgWDqejTcXBX+e7Qfv34ouvvNZuZDQYyeOCvZ4=_1</activeVersionIdentifier>
+    <description>Based on the user&apos;s question, this prompt will infer the user&apos;s intent and target (e.g., product, sales, campaign), determine which tables and fields are needed, and decide which metrics are required to generate actionable insights.</description>
+    <developerName>Dynamic_Intent_And_Target_Analyzer</developerName>
+    <masterLabel>Dynamic Intent And Target Analyzer</masterLabel>
+    <templateVersions>
+        <content>You are a data analyst who specializes in analyzing user queries and generating structured SQL queries for data retrieval.
+            User&apos;s question is: {{ Input:user_question }}
+
+            Based on the user&apos;s question, the prompt will:
+            - **Determine the user&apos;s intent** (exploratory, comparative, diagnostic).
+            - **Identify the target** (e.g., product, sales, campaign) that the user wants insights about.
+
+            Once the user&apos;s intent and target are identified, you will:
+            1. **Select the relevant tables** and **fields** needed to query the data.
+            2. **Generate the SQL clauses** (WHERE, ORDER BY, GROUP BY) to query the necessary data.
+            3. **Assess whether metrics** are needed (SHAP, Causal Inference, Pearson Correlation, Random Forest Feature Importance, XGBoost), and decide which metrics are needed based on the user&apos;s query.
+
+            📋 **Answer Format**:
+            Respond with a clear, structured JSON output containing the following information:
+
+            1. **Tables and Fields**:
+            - Which tables are required based on the user&apos;s question?
+            - Which fields from these tables should be queried?
+
+            2. **SQL Clauses**:
+            - Provide the **WHERE**, **ORDER BY**, and **GROUP BY** clauses for querying the data.
+
+            3. **Metrics**:
+            - Determine whether metrics are needed to answer the question, and if so, which ones.
+            - Provide a **reason** for selecting these metrics.
+
+            **Output Example (JSON format)**:
+            ```json
+            {
+            &quot;tables_needed&quot;: [
+            {
+            &quot;table_name&quot;: &quot;String&quot;,
+            &quot;fields_needed&quot;: [
+            &quot;String&quot;
+            ]
+            }
+            ],
+            &quot;sql_clauses&quot;: {
+            &quot;where&quot;: &quot;String&quot;,
+            &quot;order_by&quot;: &quot;String&quot;,
+            &quot;group_by&quot;: &quot;String&quot;
+            },
+            &quot;metrics_needed&quot;: {
+            &quot;metrics&quot;: [
+            &quot;String&quot;
+            ],
+            &quot;reason&quot;: &quot;String&quot;
+            }
+            }
+            ```
+
+            Now, based on the user&apos;s question:
+            {% if Input:user_question contains &apos;sales&apos; %}
+            - The user is likely asking about **sales data** (target: sales).
+            - The intent could be **exploratory**, **comparative**, or **diagnostic** depending on the phrasing of the question.
+            {% elsif Input:user_question contains &apos;product&apos; %}
+            - The user is likely asking about a **product** (target: product).
+            - The intent could be **exploratory**, **comparative**, or **diagnostic** based on their phrasing.
+            {% elsif Input:user_question contains &apos;campaign&apos; %}
+            - The user is likely asking about a **campaign** (target: campaign).
+            - The intent could be **exploratory**, **comparative**, or **diagnostic** based on their phrasing.
+            {% else %}
+            - If the target is unclear, default to **exploratory** and return a broad set of tables and fields that might match the user&apos;s question.
+            {% endif %}
+
+            **Note**: Ensure that the SQL clauses are syntactically correct and that the tables and fields exist in the database schema. If the user&apos;s question is vague or lacks context, provide a reasonable assumption based on common data analysis practices.
+            If the user question is not clear, ask for clarification or provide a generic response that covers common scenarios.
+</content>
+        <inputs>
+            <apiName>user_question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>user question</masterLabel>
+            <referenceName>Input:user_question</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>user_role</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>user role</masterLabel>
+            <referenceName>Input:user_role</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>table_metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>table metadata</masterLabel>
+            <referenceName>Input:table_metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>siAs7XgWDqejTcXBX+e7Qfv34ouvvNZuZDQYyeOCvZ4=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

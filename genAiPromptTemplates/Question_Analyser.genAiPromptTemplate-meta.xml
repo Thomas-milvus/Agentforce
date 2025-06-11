@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Analyze question and map to Data Cloud metadata, detect action type, relevant fields, and filters. Null safety included.</description>
+    <developerName>Question_Analyser</developerName>
+    <masterLabel>Question Analyser</masterLabel>
+    <templateVersions>
+        <content>### INSTRUCTIONS
+You are a task analyzer for Data Cloud.
+
+Given:
+- Question: {!$Input:Question}
+- Metadata: {!$Input:Metadata}
+- Dataspace: {!$Input:Dataspace}
+
+1. From the provided Metadata, select the most relevant Data Model Entity that would help answer the question.
+2. Detect the action type from the question (exploratory, diagnostic, comparative).
+3. Identify the most relevant fields needed to answer the question.
+4. Detect any implied filters from the question in strict JSON format (e.g., {&quot;region&quot;: &quot;Korea&quot;}).
+5. If nothing can be clearly detected, return null for entity, fields, or filters.
+
+### OUTPUT FORMAT
+- Question: {!$Input:Question}
+- Action type: [exploratory, diagnostic, comparative]
+- table: [Entity Name]
+- Fields: [Comma-separated field names] or null
+- Filters: JSON format or null
+
+### RULES
+- Never guess. Return null if no match.
+- Always validate fields and filters strictly.
+</content>
+        <inputs>
+            <apiName>Metadata</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Metadata</masterLabel>
+            <referenceName>Input:Metadata</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:Question</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Dataspace</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Dataspace</masterLabel>
+            <referenceName>Input:Dataspace</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Draft</status>
+        <versionIdentifier>siAs7XgWDqejTcXBX+e7Qfv34ouvvNZuZDQYyeOCvZ4=_2</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
